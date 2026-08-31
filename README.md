@@ -1,6 +1,6 @@
 # Marine Heatwave Detection: The Mediterranean Sea
 
-**Status: in progress.** Data acquisition, NetCDF-to-Parquet conversion, and exploratory SQL analysis complete. Marine heatwave detection logic built. Visualization notebook next.
+**Status: in progress.** Data acquisition, NetCDF-to-Parquet conversion, exploratory SQL analysis, and marine heatwave event detection complete. Visualization notebook in progress: animated slider validated on a test period (Jan-Mar 2016), full 2016-2026 scale-up and visual polish still pending.
 
 ## Overview
 
@@ -48,5 +48,5 @@ notebooks/
   01_netcdf_to_duckdb.ipynb
   02_eda_sql.ipynb
   03_mhw_detection.ipynb
-  04_visualization.ipynb      (planned)
+  04_visualization.ipynb      (in progress)
 ```
