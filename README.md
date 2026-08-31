@@ -36,7 +36,7 @@ Marine heatwaves are not exclusively a summer phenomenon. Both investigated even
 
 ## Visualization
 
-Interactive animated map of SST and detected heatwave events across the full study period, available as a standalone HTML file: [`outputs/marine_heatwave_animation.html`](outputs/marine_heatwave_animation.html) (10-day resolution, 383 frames. GitHub's notebook preview doesn't render interactive Plotly widgets, so the animation lives here rather than embedded in the notebook itself).
+Interactive animated map of SST and detected heatwave events across the full study period, available as a standalone HTML file: [`outputs/marine_heatwave_animation.html`](outputs/marine_heatwave_animation.html) (10-day resolution, 383 frames). GitHub's file preview cannot render files this large inline: click through, then use "Download raw file" and open it locally in your browser for the full interactive experience.
 
 ## Stack
 
