@@ -1,6 +1,6 @@
 # Marine Heatwave Detection: The Mediterranean Sea
 
-**Status: in progress.** Data acquisition, NetCDF-to-Parquet conversion, exploratory SQL analysis, and marine heatwave event detection complete. Visualization notebook in progress: animated slider validated on a test period (Jan-Mar 2016), full 2016-2026 scale-up and visual polish still pending.
+**Status: complete.** Data acquisition, NetCDF-to-Parquet conversion, exploratory SQL analysis, marine heatwave event detection, and animated visualization all complete. 253,145 events detected across the NW Mediterranean (2016-2026) using the Hobday et al. methodology implemented from scratch in SQL, visualized with an interactive Plotly animation (10-day resolution, 2016-2026).
 
 ## Overview
 
@@ -34,6 +34,10 @@ The Hobday et al. (2016) methodology, implemented from scratch in SQL, detected 
 
 Marine heatwaves are not exclusively a summer phenomenon. Both investigated events occurred outside summer: the 2016 case (46 days, January-February) and the longest overall (161 days, October 2024-March 2025). Both were individually verified against raw SST data and confirmed as genuine sustained anomalies, not artifacts of the detection logic, comparable in kind to real documented events like the 2014-2016 Northeast Pacific "Blob," which also spanned multiple seasons. This pattern is consistent with recent Mediterranean-wide monitoring: Greenpeace's 2025 "Mare Caldo" report (with DISTAV, University of Genoa) documented widespread marine heatwaves across Italian coastal waters starting as early as late winter or spring, not confined to summer months.
 
+## Visualization
+
+Interactive animated map of SST and detected heatwave events across the full study period, available as a standalone HTML file: [`outputs/marine_heatwave_animation.html`](outputs/marine_heatwave_animation.html) (10-day resolution, 383 frames. GitHub's notebook preview doesn't render interactive Plotly widgets, so the animation lives here rather than embedded in the notebook itself).
+
 ## Stack
 
 Python for ETL (copernicusmarine CLI, xarray, NetCDF to Parquet conversion), SQL via DuckDB for analysis.
@@ -43,10 +47,11 @@ Python for ETL (copernicusmarine CLI, xarray, NetCDF to Parquet conversion), SQL
 ```
 data/raw/          raw NetCDF (not versioned)
 data/processed/     Parquet files (not versioned)
+outputs/            exported HTML visualization
 notebooks/
   00_data_acquisition.ipynb
   01_netcdf_to_duckdb.ipynb
   02_eda_sql.ipynb
   03_mhw_detection.ipynb
-  04_visualization.ipynb      (in progress)
+  04_visualization.ipynb
 ```
