@@ -38,6 +38,10 @@ Marine heatwaves are not exclusively a summer phenomenon. Both investigated even
 
 Interactive animated map of SST and detected heatwave events across the full study period, available as a standalone HTML file: [`outputs/marine_heatwave_animation.html`](outputs/marine_heatwave_animation.html) (10-day resolution, 383 frames). GitHub's file preview cannot render files this large inline: click through, then use "Download raw file" and open it locally in your browser for the full interactive experience.
 
+## Future work
+
+**Extended climatological baseline**: re-run the detection pipeline using the full available CMEMS record (1982-2026, ~44 years) instead of the current 10-11 year window, to match the standard 30-year baseline used in the marine heatwave literature and validate whether results hold at full scale.
+
 ## Stack
 
 Python for ETL (copernicusmarine CLI, xarray, NetCDF to Parquet conversion), SQL via DuckDB for analysis.
