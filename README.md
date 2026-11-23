@@ -1,6 +1,8 @@
 # Marine Heatwave Detection: The Mediterranean Sea
 
-**Status: complete.** Data acquisition, NetCDF-to-Parquet conversion, exploratory SQL analysis, marine heatwave event detection, and animated visualization all complete. 253,145 events detected across the NW Mediterranean (2016-2026) using the Hobday et al. methodology implemented from scratch in SQL, visualized with an interactive Plotly animation (10-day resolution, 2016-2026).
+**Status: complete for the 10-11 year baseline. Extension to a 30-year baseline in progress.** Data acquisition, NetCDF-to-Parquet conversion, exploratory SQL analysis, marine heatwave event detection, and animated visualization all complete. 253,145 events detected across the NW Mediterranean (2016-2026) using the Hobday et al. methodology implemented from scratch in SQL, visualized with an interactive Plotly animation (10-day resolution, 2016-2026).
+
+An extended 1996-2026 record has been downloaded and checked (`05_baseline_30y_data_check.ipynb`), although the detection has not yet been re-run on it.
 
 ## Overview
 
@@ -14,11 +16,15 @@ Northwestern Mediterranean: Tuscan Archipelago, Ligurian Sea, and Gulf of Lion (
 
 Mediterranean Sea: High Resolution L4 Sea Surface Temperature Reprocessed (Copernicus Marine Service, SST_MED_SST_L4_REP_OBSERVATIONS_010_021, DOI 10.48670/moi-00173). Daily, satellite-derived, 0.05° resolution, 2016–2026.
 
+An extended record for 01-01-1996 to 24-10-2026 (same product, same box and grid) was downloaded on 23-11-2026 to support a 30-year baseline: 410.69 MB, 11,255 daily time steps, not versioned. It lags real time by about a month, so 2026 is incomplete. Checks in `05_baseline_30y_data_check.ipynb`: one time step per calendar day, and a constant 7,184 NaN cells out of 19,120 (37.6%, land mask) on every day.
+
 ## Methodology
 
 Marine heatwave detection follows the Hobday et al. (2016) definition: an event is a period of at least 5 consecutive days where SST exceeds the 90th percentile threshold for that calendar day, calculated from a climatological baseline.
 
 Note on scope: the standard definition uses a 30-year baseline. This project uses 2016–2026 (10-11 years depending on calendar day) to keep the dataset manageable for a portfolio project. This is a documented simplification, not an attempt to match published climatological studies.
+
+Before re-running with a 30-year baseline, I predicted that the lower threshold would produce more events than 253,145 and a median duration above 8 days. To be compared with the results.
 
 ## Key findings
 
@@ -40,7 +46,9 @@ Interactive animated map of SST and detected heatwave events across the full stu
 
 ## Future work
 
-**Extended climatological baseline**: re-run the detection pipeline using the full available CMEMS record (1982-2026, ~44 years) instead of the current 10-11 year window, to match the standard 30-year baseline used in the marine heatwave literature and validate whether results hold at full scale.
+**30-year baseline**: compute the detection thresholds on 30 complete years (01-01-1996 to 31-12-2025) and compare the results with the 10-11 year baseline (253,145 events, median duration 8 days), which stays as a standalone analysis. For updates with new data, the baseline moves forward by one year each January (1996-2025 for 2026, 1997-2026 for 2027), using complete years only so that every calendar day has the same number of samples. A moving baseline absorbs the long-term warming trend: it flags events that are anomalous or extreme relative to the recent climate, but cannot be used to measure the warming itself. Its results are not directly comparable with fixed-baseline studies such as Hobday et al. (2016). The product is available from 01-01-1982, so a fixed baseline remains possible for comparison.
+
+**Automatic updates**: a script that downloads only the missing days from Copernicus Marine.
 
 ## Stack
 
@@ -58,4 +66,5 @@ notebooks/
   02_eda_sql.ipynb
   03_mhw_detection.ipynb
   04_visualization.ipynb
+  05_baseline_30y_data_check.ipynb
 ```
