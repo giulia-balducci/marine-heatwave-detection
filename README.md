@@ -16,7 +16,7 @@ Northwestern Mediterranean: Tuscan Archipelago, Ligurian Sea, and Gulf of Lion (
 
 Mediterranean Sea: High Resolution L4 Sea Surface Temperature Reprocessed (Copernicus Marine Service, SST_MED_SST_L4_REP_OBSERVATIONS_010_021, DOI 10.48670/moi-00173). Daily, satellite-derived, 0.05° resolution, 2016–2026.
 
-An extended record for 01-01-1996 to 24-10-2026 (same product, same box and grid) was downloaded on 23-11-2026 to support a 30-year baseline: 410.69 MB, 11,255 daily time steps, not versioned. It lags real time by about a month, so 2026 is incomplete. Checks in `05_baseline_30y_data_check.ipynb`: one time step per calendar day, and a constant 7,184 NaN cells out of 19,120 (37.6%, land mask) on every day.
+An extended record for 01-01-1996 to 24-10-2026 (same product, same box and grid) was downloaded on 23-11-2026 to support a 30-year baseline: 410.69 MB, 11,255 daily time steps, not versioned. It lags real time by about a month, so 2026 is incomplete. Checks in `05_baseline_30y_data_check.ipynb`: one time step per calendar day, and a constant 7,184 NaN cells out of 19,120 (37.6%, land mask) on every day. The temperature range over the full record is 4.25 to 30.79 °C; the minimum falls in the northern Adriatic on 07-01-2019, at the northern edge of the bounding box.
 
 ## Methodology
 
