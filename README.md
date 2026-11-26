@@ -48,6 +48,8 @@ Interactive animated map of SST and detected heatwave events across the full stu
 
 **30-year baseline**: compute the detection thresholds on 30 complete years (01-01-1996 to 31-12-2025) and compare the results with the 10-11 year baseline (253,145 events, median duration 8 days), which stays as a standalone analysis. For updates with new data, the baseline moves forward by one year each January (1996-2025 for 2026, 1997-2026 for 2027), using complete years only so that every calendar day has the same number of samples. A moving baseline absorbs the long-term warming trend: it flags events that are anomalous or extreme relative to the recent climate, but cannot be used to measure the warming itself. Its results are not directly comparable with fixed-baseline studies such as Hobday et al. (2016). The product is available from 01-01-1982, so a fixed baseline remains possible for comparison.
 
+**Cross-check in Python**: re-run the detection with a published Python implementation of the Hobday et al. (2016) definition on the same data and baseline, and compare the number of events and their durations with the SQL results.
+
 **Automatic updates**: a script that downloads only the missing days from Copernicus Marine.
 
 ## Stack
